@@ -1,5 +1,6 @@
 package com.onezao.onezao.onezao;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class AdminActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -27,7 +29,7 @@ public class AdminActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Replace with your own action , I hope we can be better.", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -59,7 +61,15 @@ public class AdminActivity extends AppCompatActivity
         return true;
     }
 
+
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        AdminUtils.AdminMenu(AdminActivity.this, item);
+        return super.onOptionsItemSelected(item);
+    }
+
+/*    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -72,7 +82,7 @@ public class AdminActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -83,11 +93,11 @@ public class AdminActivity extends AppCompatActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+           //  gallery
         } else if (id == R.id.nav_slideshow) {
-
+            //  slideshow
         } else if (id == R.id.nav_manage) {
-
+            Toast.makeText(this,"功能设置",Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
@@ -98,4 +108,23 @@ public class AdminActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+/*    //加载顶部菜单，添加菜单的点击事件。
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //设置左上角的图标的点击事件  ActionBar
+        ActionBar actionBar = this.getActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.admin, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        AdminUtils.AdminMenu(AdminActivity.this, item);
+        return super.onOptionsItemSelected(item);
+    }*/
 }
