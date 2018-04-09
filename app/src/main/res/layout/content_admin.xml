@@ -17,4 +17,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_xutils"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_xutils_test" />
+
+    <Button
+        android:id="@+id/btn_toOkHttp_0409"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/okhttp0409"
+        app:layout_constraintRight_toRightOf="parent"/>
+
 </android.support.constraint.ConstraintLayout>

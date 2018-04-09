@@ -1,6 +1,6 @@
 package com.onezao.onezao.onezao;
 
-import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,17 +13,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
+import android.view.View.OnClickListener;
+
+import com.onezao.onezao.onezao.Http0329.HttpTestActivity;
+import com.onezao.onezao.onezao.okhttp0409.OkHttpActivity0409;
+
 
 public class AdminActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,OnClickListener{
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_admin);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+       Button btn_xutils_btn = (Button) findViewById(R.id.btn_xutils);
+        btn_xutils_btn.setOnClickListener(this);
+
+        Button btn_toOkHttp_0409 = (Button) findViewById(R.id.btn_toOkHttp_0409);
+        btn_toOkHttp_0409.setOnClickListener(this);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +59,22 @@ public class AdminActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    public void onClick(View view){
+       int id = view.getId();
+       switch (id){
+           case R.id.btn_xutils :
+               Toast.makeText(AdminActivity.this,"HttpTestActivity",Toast.LENGTH_SHORT).show();
+               Intent intent =  new Intent(AdminActivity.this,HttpTestActivity.class);
+               startActivity(intent);
+               return;
+           case R.id.btn_toOkHttp_0409 :
+               Toast.makeText(AdminActivity.this,"btn_https0329",Toast.LENGTH_SHORT).show();
+               Intent intent2 =  new Intent(AdminActivity.this,OkHttpActivity0409.class);
+               startActivity(intent2);
+               return;
+       }
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -53,6 +84,9 @@ public class AdminActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
+    //测试xutils
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

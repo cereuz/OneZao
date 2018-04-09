@@ -9,5 +9,8 @@
     <string name="action_query">查询</string>
     <string name="action_about">关于</string>
     <string name="action_save">保存</string>
+    <string name="btn_xutils_test">测试xutils</string>
+    <string name="okhttp0409">okhttp0409</string>
+    <string name="et_okhttp_0409">http://www.douban.com</string>
 
 </resources>
